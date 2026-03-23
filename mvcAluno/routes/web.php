@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlunoController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+// GET - listar os usuários cadastrados 
+Route::get('/aluno/listar',[AlunoController::class, 'listar'])->name('aluno.listar');
+
+
+Route::get('/aluno/cadastrar', function(){
+    return view('cadastro');
+})->name('aluno.cadastro');
+
+Route::post('/aluno/salvar', [AlunoController::class, 'add'])->name('aluno.salvar');
