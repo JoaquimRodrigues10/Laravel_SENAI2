@@ -8,11 +8,11 @@
 <body>
     <h1>Cadastro Usuarios</h1>
 
-    @if(session('sucess'))
-        <p style="color.green">{{ session('sucess')}}</p>
+    @if(session('success'))
+        <p style="color:green">{{ session('success')}}</p>
     @endif
 
-    <from action="{{route('aluno.salvar') }}" method="POST">
+    <form action="{{route('aluno.salvar') }}" method="POST">
         @csrf
         <label fot="nome">Nome: </label>
         <input type="text" name="nome" id="nome" placeholder="Nome..."
@@ -24,8 +24,8 @@
             <input type="email" name="email" id="email" placeholder="Email..." required value="{{ old('email')}}"
             >
 
-            <input type="submit" value="Cadastrar">
-</from>
+            <button type="submit">Cadastrar</button>
+</form>
 
     @if($errors->any())
     <div style="color: red">
