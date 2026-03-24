@@ -1,8 +1,20 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('produto/listar', [ProdutoController:: class, 'listar'])->name('produto/listar');
+
+Route::get('/produto/cadastrar', function(){
+    return view('cadastro');
+})->name('produto.cadastro');
+
+Route::post('/produto/salvar', [ProdutoController::class, 'add'])->name('produto.salvar');
+
+Route::get('/produto/{id}/atualizar', [ProdutoController::class, 'atualizar'])->name('produto.atualizar');
+
+Route::put('produto/{id}/update', [ProdutoController::class, 'update'])->name('produto.update');
