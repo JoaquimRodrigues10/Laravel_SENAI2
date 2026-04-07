@@ -1,26 +1,29 @@
-create database alunoLaravel;
-use alunoLaravel;
+USE alunoLaravel;
 
-create TABLE alunos(
+-- DROP DATABASE alunolaravel; --
 
-    turmaid INT auto_increment primary KEY,
+CREATE TABLE alunos (
+id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100),
     created_at timestamp null,
     updated_at timestamp null
 );
 
-Create table Turmas (
-id INT auto_increment primary KEY,
-    numSala int not null,
-    serie varchar(255) null,
-    created_at timestamp null,
-    updated_at timestamp null
+
+CREATE TABLE Turmas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numSala INT NOT NULL,
+    serie VARCHAR(255) NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
 );
 
-alter table Alunos
-add column turma_id int null,
-add constraint fk_alunos_turma
-foreign key (turma_id) references turma(id) on delete set null;
+ALTER TABLE alunos
+ADD COLUMN turma_id INT NULL,
+ADD CONSTRAINT fk_alunos_turma
+FOREIGN KEY (turma_id) REFERENCES Turmas(id) ON DELETE SET NULL;
 
+
+SELECT * FROM alunos;
 SELECT * FROM Turmas;

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório de Alunos</title>
 </head>
+<style>
+    table{
+        text-align: center
+    }
+</style>
 <body>
     <h1>Relatório de Alunos</h1>
     <table border="1">
@@ -16,8 +21,8 @@
                 <th>ID TURMA</th>
                 <th>SERIE</th>
                 <th>NUM SALA</th>
-                <th>Atualizar</th>
-                <th>Deletar</th>
+                <th>ATUALIZAR</th>
+                <th>DELETAR</th>
             </tr>
         </thead>
         <tbody>

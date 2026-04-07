@@ -6,42 +6,61 @@
     <title>Cadastro de Produtos</title>
 </head>
 <body>
-    <h2>Cadastro de Produtos</h2>
+    <h1>Cadastro de Produtos</h1>
 
     @if(session('success'))
-        <p style="color: green">{{session('success')}}</p>
+        <p style="color:green">{{ session('success')}}</p>
     @endif
 
-    <form action="{{route('produto.salvar')}}" method="POST">
+    <form action="{{ route('produto.salvar') }}" method="POST">
         @csrf
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" placeholdet="Nome..."
-            require value="{{old('nome')}}"
-        >
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" placeholder="Produto..." require value="{{old('nome')}}">
         <br><br>
-        <label for="quantidade">Quantidade: </label>
-        <input type="text" name="quantidade" id="quantidade" placeholdet="Quantidade..."
-            require value="{{old('quantidade')}}"
-        >
+
+        <label for="qntd">Quantidade:</label>
+        <input type="text" name="quantidade" id="quantidade" placeholder="Quantidade..." require value="{{old('quantidade')}}">
         <br><br>
-        <label for="preco">Preço: </label>
-        <input type="text" name="preco" id="preco" placeholdet="Preço..."
-            require value="{{old('preco')}}"
-        >
+
+        <label for="qntd">Preço:</label>
+        <input type="text" name="preco" id="preco" placeholder="Preço..." require value="{{old('preco')}}">
+        <br><br>
+
+        <label for="descricao">Descrição do Produto:</label>
+        <input type="textarea" name="descricao" id="descricao" placeholder="Descrição do Produto..." require value="{{old('descricao')}}">
+        <br><br>
+
+        <label for="tamanho">Tamanho do Produto:</label>
+        <input type="text" name="tamanho" id="tamanho" placeholder="Tamanho do Produto..." require value="{{old('tamanho')}}">
+        <br><br>
+
+        <label for="tamanho">Peso do Produto:</label>
+        <input type="text" name="peso" id="peso" placeholder="Peso do Produto..." require value="{{old('peso')}}">
+        <br><br>
+
+        <label for="setor_id">Setor:</label>
+        <select name="setor_id" id="setor_id" required>
+            <option value="" disabled selected>Selecione um Setor</option>
+
+            @foreach ($setores as $setor)
+                <option value="{{ $setor->id }}">
+                    Setor - {{ $setor->nome }} - N° {{ $setor->nCorredor }}
+                </option>
+            @endforeach
+        </select>
         
         <input type="submit" value="Cadastrar">
     </form>
 
     @if($errors->any())
-        <div style="color: red">
+        <div style="color:red">
             <ul>
                 @foreach ($errors->all() as $erro)
-                    <li>{{ $erro}}</li>
+                    <li>{{ $erro }}</li>
                 @endforeach
             </ul>
+
         </div>
     @endif
-
-    
 </body>
 </html>
