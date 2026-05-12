@@ -19,9 +19,9 @@
 
         <input type="text" name="nome" value="{{ old('nome', $produto->nome) }}" required>
 
-        <input type="text" name="quantidade" value="{{ old('quantidade', $produto->quantidade) }}" required>
-
-        <input type="text" name="preco" value="{{ old('preco', $produto->preco) }}" required>
+        <input type="text" name="quantidade" value="{{ old('autor', $produto->quantidade) }}" required>
+        
+      <input type="text" name="descricao" value="{{ old('descricao', $produto->detalhe?->descricao) }}" required>
 
         <input type="text" name="descricao" value="{{ old('descricao', $produto->detalhe?->descricao) }}" required>
 
