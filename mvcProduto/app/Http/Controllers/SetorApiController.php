@@ -53,4 +53,12 @@ class SetorApiController extends Controller{
             'setor' => $setor
         ], 200);
     }
+    public function deletarApi($id){
+        $setor = Setores::findOrFail($id);
+        $produto->delete();
+
+        return response()->json9([
+            'message' => "Setor Deletado com Sucesso!",
+        ], 200);
+    }
 }
